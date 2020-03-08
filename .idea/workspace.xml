@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f0f567a9-a0f5-4946-98d7-0fe62cfcfc34" name="Default Changelist" comment="pom">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="f0f567a9-a0f5-4946-98d7-0fe62cfcfc34" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springcloudcli.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloudcli.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583643838816</updated>
       <workItem from="1583643843483" duration="370000" />
-      <workItem from="1583644232287" duration="1968000" />
+      <workItem from="1583644232287" duration="2228000" />
     </task>
     <task id="LOCAL-00001" summary="ignore">
       <created>1583644071422</created>
@@ -81,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583644649926</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="pom">
+      <created>1583646403278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583646403278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,10 +98,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="pom" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="615" y="112" key="CommitChangelistDialog2" timestamp="1583644803862">
+    <state x="615" y="112" key="CommitChangelistDialog2" timestamp="1583646433026">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="615" y="112" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1583644803862" />
+    <state x="615" y="112" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1583646433026" />
     <state x="415" y="121" width="1200" height="800" key="DiffContextDialog" timestamp="1583644798002">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -110,10 +114,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="516" y="152" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1583646135322" />
-    <state x="607" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583644707895">
+    <state x="607" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583646405882">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="607" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1583644707895" />
+    <state x="607" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1583646405882" />
     <state x="724" y="311" key="git4idea.merge.GitPullDialog" timestamp="1583644438320">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
