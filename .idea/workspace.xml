@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0f567a9-a0f5-4946-98d7-0fe62cfcfc34" name="Default Changelist" comment="pom">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springcloudcli.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloudcli.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloudcli.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -65,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583643838816</updated>
       <workItem from="1583643843483" duration="370000" />
-      <workItem from="1583644232287" duration="639000" />
+      <workItem from="1583644232287" duration="1968000" />
     </task>
     <task id="LOCAL-00001" summary="ignore">
       <created>1583644071422</created>
@@ -106,10 +106,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="795" y="275" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1583644566388" />
-    <state x="516" y="152" key="SettingsEditor" timestamp="1583644578921">
+    <state x="516" y="152" key="SettingsEditor" timestamp="1583646135322">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="516" y="152" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1583644578921" />
+    <state x="516" y="152" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1583646135322" />
     <state x="607" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583644707895">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
