@@ -7,6 +7,15 @@
     <groupId>me.bruceli</groupId>
     <artifactId>springcloudcli</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>cli_mybatis_plus_8001</module>
+        <module>cli_redis_8381</module>
+        <module>cli_common</module>
+        <module>cli_gateway_9527</module>
+        <module>cli_sleuth_zipkin_8002</module>
+        <module>cli_log4j2_8003</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,13 +25,19 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
-        <spring-cloud.version>Hoxton</spring-cloud.version>
+        <spring-boot-druid.version>1.1.10</spring-boot-druid.version>
+        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
         <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
         <mariadb.version>2.5.4</mariadb.version>
         <mybatis-plus.version>3.3.1</mybatis-plus.version>
+        <mysql.version>6.0.6</mysql.version>
+        <redission.version>3.12.5</redission.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <hutool.version>5.3.2</hutool.version>
         <lombok.version>1.18.12</lombok.version>
         <junit.version>4.13</junit.version>
         <devtools.version>2.2.5.RELEASE</devtools.version>
+        <module.version>1.0-SNAPSHOT</module.version>
     </properties>
 
     <dependencyManagement>
@@ -30,7 +45,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-dependencies}</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -63,6 +78,35 @@
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${spring-boot-druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redission.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
             <!-- 使用条件： 1.安装lombok插件Plugins 2.开启注解Annotation Processors -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -93,6 +137,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
@@ -120,6 +165,31 @@
             <releases>
                 <enabled>true</enabled>
             </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>repo2</id>
+            <name>Mirror from Maven Repo2</name>
+            <url>http://repo2.maven.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <name>spring milestone</name>
+            <url>https://repo.spring.io/milestone/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
@@ -128,6 +198,17 @@
             <id>public</id>
             <name>aliyun nexus</name>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>repo2</id>
+            <name>Mirror from Maven Repo2</name>
+            <url>http://repo2.maven.org/maven2/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>

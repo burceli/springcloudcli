@@ -1,0 +1,22 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cli_gateway_9527
+  cloud:
+    discovery:
+      loca
+    gateway:
+      routes:
+        - id: order1
+          #uri: http://localhost:8001
+          uri: lb://order_service
+          predicated:
+            - Path:/order1/get/**
+
+        - id: order2
+            #uri: http://localhost:8001
+            uri: lb://order_service
+            predicated:
+              - Path:/order2/get/**
