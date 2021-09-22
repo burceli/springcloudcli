@@ -1,0 +1,11 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: cli_log4j2_8003
+logging:
+  config: classpath:log4j2.xml
+
+log:
+  path: D:/logs
