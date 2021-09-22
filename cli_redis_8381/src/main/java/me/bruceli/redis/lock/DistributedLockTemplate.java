@@ -55,4 +55,8 @@ public interface DistributedLockTemplate {
      * @return
      */
     <T> T tryLock(DistributedLockCallback<T> callback, long waitTime, long leaseTime, TimeUnit timeUnit, boolean fairLock);
+
+
+    <T> void unlock(DistributedLockCallback<T> callback, boolean fairLock);
+
 }

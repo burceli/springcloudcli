@@ -1,7 +1,7 @@
 package me.bruceli.common.vo;
 
 public enum RE {
-    SUCCESS("0","接收成功"),
+    SUCCESS("0","成功"),
 
     ERROR("1001","系统繁忙"),
 

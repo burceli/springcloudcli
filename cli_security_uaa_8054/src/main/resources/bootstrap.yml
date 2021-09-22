@@ -1,0 +1,22 @@
+server:
+  port: 8051
+
+spring:
+  application:
+    #除非手动指定dataId,否则项目名与nacos的dataId对应
+    name: cli-security-uaa-8054
+  profiles:
+    active: dev
+  #nacos-config
+  cloud:
+    nacos:
+      server-addr: 192.168.209.1:8848
+      username: nacos
+      password: nacos
+      config:
+        namespace: dev
+        file-extension: yaml
+        group: SECURITY_GROUP
+        #profile>默认>extension>shared
+
+

@@ -1,0 +1,32 @@
+server:
+  port: 8052
+
+spring:
+  application:
+    #除非手动指定dataId,否则项目名与nacos的dataId对应
+    name: cli-product-8052
+  profiles:
+    active: dev
+  #nacos-config
+  cloud:
+    nacos:
+      server-addr: 192.168.209.1:8848
+      username: nacos
+      password: nacos
+      config:
+        namespace: dev
+        file-extension: yaml
+        group: PRODUCT_GROUP
+        #profile>默认>extension>shared
+        shared-configs:
+          - data-id: cli-product-8052-common.yaml
+            refresh: true
+            group: PRODUCT_GROUP
+          - data-id: cli-product-8052-common2.yaml
+            refresh: true
+            group: PRODUCT_GROUP
+        extension-configs:
+          - data-id: cli-product-8052-common3.yaml
+            refresh: true
+            group: PRODUCT_GROUP
+

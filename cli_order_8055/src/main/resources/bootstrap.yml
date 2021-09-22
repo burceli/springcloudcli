@@ -1,0 +1,32 @@
+server:
+  port: 8055
+
+spring:
+  application:
+    #除非手动指定dataId,否则项目名与nacos的dataId对应
+    name: cli-order-8051
+  profiles:
+    active: dev
+  #nacos-config
+  cloud:
+    nacos:
+      server-addr: 192.168.209.1:8848
+      username: nacos
+      password: nacos
+      config:
+        namespace: dev
+        file-extension: yaml
+        group: ORDER_GROUP
+        #profile>默认>extension>shared
+        shared-configs:
+          - data-id: cli-order-8051-common.yaml
+            refresh: true
+            group: ORDER_GROUP
+          - data-id: cli-order-8051-common2.yaml
+            refresh: true
+            group: ORDER_GROUP
+        extension-configs:
+          - data-id: cli-order-8051-common3.yaml
+            refresh: true
+            group: ORDER_GROUP
+

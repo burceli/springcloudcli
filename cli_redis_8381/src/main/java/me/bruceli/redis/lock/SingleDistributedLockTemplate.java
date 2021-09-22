@@ -28,10 +28,22 @@ public class SingleDistributedLockTemplate implements DistributedLockTemplate {
             return callback.process();
         } finally {
             if (lock != null) {
-                if(lock.isLocked()){
-                    if(lock.isHeldByCurrentThread()){
-                        lock.unlock();
+                if(lock.isLocked()){// 是否还是锁定状态
+                    if(lock.isHeldByCurrentThread()){// 时候是当前执行线程的锁
+                        lock.unlock();// 释放锁
                     }
+                }
+            }
+        }
+    }
+
+    @Override
+    public <T> void unlock(DistributedLockCallback<T> callback, boolean fairLock) {
+        RLock lock = getLock(callback.getLockName(), fairLock);
+        if (lock != null) {
+            if(lock.isLocked()){// 是否还是锁定状态
+                if(lock.isHeldByCurrentThread()){// 时候是当前执行线程的锁
+                    lock.unlock();// 释放锁
                 }
             }
         }
