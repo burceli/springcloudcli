@@ -23,6 +23,7 @@
         <module>cli_order_8056</module>
         <module>cli_cache_8380</module>
         <module>cli_route_9528</module>
+        <module>cli_security_uaa_source</module>
 
     </modules>
     <packaging>pom</packaging>
@@ -38,6 +39,9 @@
         <spring-boot-druid.version>1.1.10</spring-boot-druid.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
+        <security-oauth2.version>2.5.1.RELEASE</security-oauth2.version>
+        <security-jwt.version>1.1.1.RELEASE</security-jwt.version>
+        <security-oauth2-autoconfigure.version>2.5.2</security-oauth2-autoconfigure.version>
         <mariadb.version>2.5.4</mariadb.version>
         <mybatis.version>1.2.0</mybatis.version>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
@@ -50,6 +54,12 @@
         <devtools.version>2.2.5.RELEASE</devtools.version>
         <module.version>1.0-SNAPSHOT</module.version>
         <swagger.version>3.0.0</swagger.version>
+        <fastjson.version>1.2.78</fastjson.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <jjwt-web.version>0.11.2</jjwt-web.version>
+        <jackson.version>2.11.2</jackson.version>
+        <joda-time.version>2.10.11</joda-time.version>
+
     </properties>
 
     <dependencyManagement>
@@ -79,12 +89,6 @@
             </dependency>
 
             <dependency>
-                <groupId>org.mariadb.jdbc</groupId>
-                <artifactId>mariadb-java-client</artifactId>
-                <version>${mariadb.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.version}</version>
@@ -103,10 +107,17 @@
             </dependency>
 
             <dependency>
+                <groupId>org.mariadb.jdbc</groupId>
+                <artifactId>mariadb-java-client</artifactId>
+                <version>${mariadb.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${spring-boot-druid.version}</version>
             </dependency>
+
 
             <dependency>
                 <groupId>org.redisson</groupId>
@@ -114,28 +125,54 @@
                 <version>${redission.version}</version>
             </dependency>
 
+
+
+
+
+            <!--security-oauth2包-->
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
                 <artifactId>spring-security-oauth2</artifactId>
-                <version>2.5.1.RELEASE</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-jwt</artifactId>
-                <version>1.1.1.RELEASE</version>
+                <version>${security-oauth2.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.security.oauth.boot</groupId>
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-                <version>2.5.2</version>
+                <version>${security-oauth2-autoconfigure.version}</version>
             </dependency>
 
+            <!--security-jwt包-->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>${security-jwt.version}</version>
+            </dependency>
+
+            <!--jjwt包-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
-                <version>0.9.1</version>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <!--jjwt-web包-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt-web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt-web.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt-web.version}</version>
+                <scope>runtime</scope>
             </dependency>
 
             <dependency>
@@ -144,6 +181,7 @@
                 <version>${commons-beanutils.version}</version>
             </dependency>
 
+            <!--hutool包-->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
@@ -153,9 +191,27 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
-                <version>1.2.78</version>
+                <version>${fastjson.version}</version>
             </dependency>
 
+            <!--jackson包-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!--joda-time包-->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
 
             <!-- 使用条件： 1.安装lombok插件Plugins 2.开启注解Annotation Processors -->
             <dependency>

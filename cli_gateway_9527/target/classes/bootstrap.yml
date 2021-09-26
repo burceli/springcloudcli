@@ -1,0 +1,32 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    #除非手动指定dataId,否则项目名与nacos的dataId对应,除减号不能使用下划线和.等特殊字符
+    name: cli-gateway-9527
+  profiles:
+    active: dev
+  #nacos-config
+  cloud:
+    nacos:
+      server-addr: 192.168.209.1:8848
+      username: nacos
+      password: nacos
+      config:
+        namespace: dev
+        file-extension: yaml
+        group: GATEWAY_GROUP
+        #profile>默认>extension>shared
+        shared-configs:
+          - data-id: cli-gateway-9527-common.yaml
+            refresh: true
+            group: GATEWAY_GROUP
+          - data-id: cli-gateway-9527-common2.yaml
+            refresh: true
+            group: GATEWAY_GROUP
+        extension-configs:
+          - data-id: cli-gateway-9527-common3.yaml
+            refresh: true
+            group: GATEWAY_GROUP
+

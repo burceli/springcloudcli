@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cli_security_uaa_8054</artifactId>
+    <artifactId>cli_security_uaa_source</artifactId>
 
     <dependencies>
         <dependency>
@@ -65,6 +65,7 @@
             <optional>true</optional>
         </dependency>
 
+
         <!-- 项目公共能包 -->
         <dependency>
             <groupId>me.bruceli</groupId>
@@ -75,7 +76,7 @@
     </dependencies>
 
     <build>
-        <finalName>cli_security_uaa_8054</finalName>
+        <finalName>cli_security_uaa_source</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
