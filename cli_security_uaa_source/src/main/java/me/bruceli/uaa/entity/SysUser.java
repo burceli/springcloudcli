@@ -1,7 +1,6 @@
 package me.bruceli.uaa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import me.bruceli.uaasource.entity.SysRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

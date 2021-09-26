@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import me.bruceli.common.domain.Payload;
 import me.bruceli.common.utils.JwtUtils;
+import me.bruceli.uaa.entity.SysUser;
 import me.bruceli.uaasource.configProperties.RsaKeyProperties;
-import me.bruceli.uaasource.entity.SysUser;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

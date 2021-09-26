@@ -1,4 +1,4 @@
-package me.bruceli.uaasource.entity;
+package me.bruceli.uaa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
