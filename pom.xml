@@ -22,8 +22,8 @@
         <module>cli_order_8055</module>
         <module>cli_order_8056</module>
         <module>cli_cache_8380</module>
-        <module>cli_route_9528</module>
         <module>cli_security_uaa_source</module>
+        <module>cli_security_common</module>
 
     </modules>
     <packaging>pom</packaging>
@@ -59,7 +59,7 @@
         <jjwt-web.version>0.11.2</jjwt-web.version>
         <jackson.version>2.11.2</jackson.version>
         <joda-time.version>2.10.11</joda-time.version>
-
+        <commons-lang3.version>3.12.0</commons-lang3.version>
     </properties>
 
     <dependencyManagement>
@@ -173,6 +173,12 @@
                 <artifactId>jjwt-jackson</artifactId>
                 <version>${jjwt-web.version}</version>
                 <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             </dependency>
 
             <dependency>

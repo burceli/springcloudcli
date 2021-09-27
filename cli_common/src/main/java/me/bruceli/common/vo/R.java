@@ -10,6 +10,11 @@ public class R<T> {
         this.message = RE.SUCCESS.getMessage();
     }
 
+    private R(String code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
     private R(T data) {
         this.code = RE.SUCCESS.getCode();
         this.message = RE.SUCCESS.getMessage();
@@ -55,6 +60,10 @@ public class R<T> {
 
     public static <T> R<T> error(RE re) {
         return new R<T>(re);
+    }
+
+    public static <T> R<T> error(String code, String message) {
+        return new R<T>(code, message);
     }
 
 

@@ -1,7 +1,8 @@
 package me.bruceli.uaa.mapper;
 
 
-import me.bruceli.uaa.entity.SysUser;
+
+import me.bruceli.security.common.entity.SysUser;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;

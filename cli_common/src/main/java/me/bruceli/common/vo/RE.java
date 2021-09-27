@@ -7,7 +7,16 @@ public enum RE {
 
     PARAMETER_ERROR("1002","参数错误"),
 
-    REPEAT_SUBMIT("1003","请勿重复提交");
+    REPEAT_SUBMIT("1003","请勿重复提交"),
+
+    AHTU_ERROR("1004","身份认证错误"),
+
+    TOKEN_ERROR("1005","token错误"),
+
+    PERMIT_ERROR("1006","权限错误"),
+
+    PERMIT_VERIFY_ERROR("1007","权限校验错误");
+
 
     private String code;
     private String message;

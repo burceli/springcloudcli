@@ -1,7 +1,8 @@
 package me.bruceli.uaa.mapper;
 
 
-import me.bruceli.uaa.entity.SysRole;
+
+import me.bruceli.security.common.entity.SysRole;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

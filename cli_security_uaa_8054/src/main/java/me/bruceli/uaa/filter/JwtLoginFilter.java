@@ -2,9 +2,10 @@ package me.bruceli.uaa.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.bruceli.common.utils.JwtUtils;
+import me.bruceli.security.common.entity.SysRole;
+import me.bruceli.security.common.entity.SysUser;
 import me.bruceli.uaa.configProperties.RsaKeyProperties;
-import me.bruceli.uaa.entity.SysRole;
-import me.bruceli.uaa.entity.SysUser;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

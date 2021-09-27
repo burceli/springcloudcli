@@ -5,6 +5,7 @@ import me.bruceli.common.constant.PermitAllUrl;
 import me.bruceli.uaasource.configProperties.RsaKeyProperties;
 import me.bruceli.uaasource.filter.JwtVerifyFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -31,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .disable()
             .authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-            .antMatchers(PermitAllUrl.permitAllUrl("/product**","/swaggerList","/oauth/token","/oauth/user/token","/users-anon/**",
+            .antMatchers(PermitAllUrl.permitAllUrl("/swaggerList","/oauth/token","/oauth/user/token","/users-anon/**",
                         "/smsVerify","/thirdPartyLogin/**")).permitAll() // 放开权限的url
             .anyRequest()
             .authenticated()

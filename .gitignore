@@ -43,3 +43,5 @@ gen
 /cli_common/target/classes/META-INF/cli_common.kotlin_module
 /cli_gateway_9527/target/classes/META-INF/cli_gateway_9527.kotlin_module
 /cli_security_uaa_8054/target/classes/META-INF/cli_security_uaa_8054.kotlin_module
+/cli_security_uaa_source/target/classes/META-INF/cli_security_uaa_source.kotlin_module
+/cli_security_common/target/classes/META-INF/cli_security_common.kotlin_module
