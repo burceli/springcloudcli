@@ -106,15 +106,12 @@ public class GatewayRouteInfoServiceAware implements ApplicationEventPublisherAw
         gatewayRouteInfoEntity.setUri(routeDefinition.getUri().toString());
         gatewayRouteInfoEntity.setServiceId(routeDefinition.getId());
         List<PredicateDefinition> predicates = routeDefinition.getPredicates();
-        // 只有一个
         if (CollectionUtils.isNotEmpty(predicates)) {
-            String predicatesString = predicates.get(0).getArgs().get("pattern");
-            gatewayRouteInfoEntity.setPredicates(predicatesString);
+            gatewayRouteInfoEntity.setPredicates(JSONUtil.toJsonStr(predicates));
         }
         List<FilterDefinition> filters = routeDefinition.getFilters();
         if (CollectionUtils.isNotEmpty(filters)) {
-            String filterString = filters.get(0).getArgs().get("_genkey_0");
-            gatewayRouteInfoEntity.setFilters(filterString);
+            gatewayRouteInfoEntity.setFilters(JSONUtil.toJsonStr(filters));
         }
         gatewayRouteInfoEntity.setRouteOrder(String.valueOf(routeDefinition.getOrder()));;
         return gatewayRouteInfoEntity;
@@ -178,7 +175,7 @@ public class GatewayRouteInfoServiceAware implements ApplicationEventPublisherAw
         }
         else {
             // 注册中心
-            uri = UriComponentsBuilder.fromUriString("lb://" + gatewayRouteInfoEntity.getUri()).build().toUri();
+            uri = UriComponentsBuilder.fromUriString(gatewayRouteInfoEntity.getUri()).build().toUri();
         }
 
         definition.setId(gatewayRouteInfoEntity.getServiceId());

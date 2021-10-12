@@ -1,13 +1,19 @@
 package me.bruceli.uaasource.configProperties;
 
 
+import lombok.Data;
 import me.bruceli.common.utils.RsaUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.security.PrivateKey;
 import java.security.PublicKey;
 
-@ConfigurationProperties("rsa.key")
+
+@Data
+@Component
+@ConfigurationProperties(prefix = "rsa.key")
 public class RsaKeyProperties {
 
     private String pubKeyFile;
@@ -17,22 +23,6 @@ public class RsaKeyProperties {
     @PostConstruct
     public void createRsaKey() throws Exception {
         publicKey = RsaUtils.getPublicKey(pubKeyFile);
-    }
-
-    public String getPubKeyFile() {
-        return pubKeyFile;
-    }
-
-    public void setPubKeyFile(String pubKeyFile) {
-        this.pubKeyFile = pubKeyFile;
-    }
-
-    public PublicKey getPublicKey() {
-        return publicKey;
-    }
-
-    public void setPublicKey(PublicKey publicKey) {
-        this.publicKey = publicKey;
     }
 
 }

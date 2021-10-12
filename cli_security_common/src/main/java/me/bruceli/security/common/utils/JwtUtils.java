@@ -1,14 +1,22 @@
-package me.bruceli.common.utils;
+package me.bruceli.security.common.utils;
 
 
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.SneakyThrows;
 import me.bruceli.common.domain.Payload;
+import me.bruceli.common.exception.BizException;
+import me.bruceli.security.common.constant.AuthConstants;
 import org.joda.time.DateTime;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Base64;
@@ -20,6 +28,17 @@ import java.util.UUID;
 public class JwtUtils {
 
     private static final String JWT_PAYLOAD_USER_KEY = "user";
+
+
+    @SneakyThrows
+    public static JSONObject getJwtPayload() {
+        String payload = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getHeader(AuthConstants.JWT_PAYLOAD_KEY);
+        if (null == payload) {
+            throw new BizException("请传入认证头");
+        }
+        JSONObject jsonObject = JSONUtil.parseObj(URLDecoder.decode(payload, StandardCharsets.UTF_8.name()));
+        return jsonObject;
+    }
 
     /**
      * 私钥加密token

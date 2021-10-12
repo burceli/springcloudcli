@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .disable()
             .authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-            .antMatchers(PermitAllUrl.permitAllUrl("/swaggerList","/oauth/token","/oauth/user/token","/users-anon/**",
+            .antMatchers(PermitAllUrl.permitAllUrl("/uaasource/**","/oauth/token","/oauth/user/token","/users-anon/**",
                         "/smsVerify","/thirdPartyLogin/**")).permitAll() // 放开权限的url
             .anyRequest()
             .authenticated()

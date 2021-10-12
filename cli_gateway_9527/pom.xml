@@ -12,6 +12,8 @@
     <packaging>jar</packaging>
 
     <dependencies>
+
+        <!--webflux,reactor,gateway-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
@@ -41,17 +43,7 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- mysql -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
 
-        <!-- mybatis -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
 
         <!-- redis -->
         <dependency>
@@ -68,7 +60,7 @@
         <!-- 项目公共能包 -->
         <dependency>
             <groupId>me.bruceli</groupId>
-            <artifactId>cli_common</artifactId>
+            <artifactId>cli_security_common</artifactId>
             <version>${module.version}</version>
         </dependency>
     </dependencies>

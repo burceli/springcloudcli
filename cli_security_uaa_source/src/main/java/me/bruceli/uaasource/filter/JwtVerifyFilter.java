@@ -3,8 +3,8 @@ package me.bruceli.uaasource.filter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import me.bruceli.common.domain.Payload;
-import me.bruceli.common.utils.JwtUtils;
 import me.bruceli.security.common.entity.SysUser;
+import me.bruceli.security.common.utils.JwtUtils;
 import me.bruceli.uaasource.configProperties.RsaKeyProperties;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

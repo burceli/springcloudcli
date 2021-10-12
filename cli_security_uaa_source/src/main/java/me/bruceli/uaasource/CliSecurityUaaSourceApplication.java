@@ -8,7 +8,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 
 @SpringBootApplication
-@EnableConfigurationProperties(RsaKeyProperties.class)
 public class CliSecurityUaaSourceApplication {
 
     public static void main(String[] args) {

@@ -1,12 +1,18 @@
 package me.bruceli.uaa.config;
 
 
-import me.bruceli.security.common.exception.AuthExceptionEntryPoint;
+import cn.hutool.http.HttpStatus;
+import cn.hutool.json.JSONUtil;
+import me.bruceli.common.vo.Result;
+import me.bruceli.common.vo.ResultCode;
 import me.bruceli.uaa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -21,8 +27,11 @@ import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeSe
 import org.springframework.security.oauth2.provider.token.*;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
+import org.springframework.security.web.AuthenticationEntryPoint;
 
 import javax.sql.DataSource;
+import java.security.KeyPair;
 import java.util.Arrays;
 
 @Configuration
@@ -98,7 +107,7 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.allowFormAuthenticationForClients();
         //security.checkTokenAccess("isAuthenticated()");
-        security.authenticationEntryPoint(new AuthExceptionEntryPoint());
+        security.authenticationEntryPoint(authenticationEntryPoint());
     }
 
     //令牌增强类
@@ -150,25 +159,36 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 
     /**
-     * Jwt资源令牌转换器<br>
-     * 参数access_token.store-jwt为true时用到
-     *
-     * @return accessTokenConverter
+     * 使用非对称加密算法对token签名
      */
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
-        JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        DefaultAccessTokenConverter defaultAccessTokenConverter = (DefaultAccessTokenConverter) jwtAccessTokenConverter
-                .getAccessTokenConverter();
-        DefaultUserAuthenticationConverter userAuthenticationConverter = new DefaultUserAuthenticationConverter();
-        userAuthenticationConverter.setUserDetailsService(userService);
-
-        defaultAccessTokenConverter.setUserTokenConverter(userAuthenticationConverter);
-        // 这里务必设置一个，否则多台认证中心的话，一旦使用jwt方式，access_token将解析错误
-        jwtAccessTokenConverter.setSigningKey(jwtSigningKey);
-
-        return jwtAccessTokenConverter;
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setKeyPair(keyPair());
+        return converter;
     }
 
+    /**
+     * 密钥库中获取密钥对(公钥+私钥)
+     */
+    @Bean
+    public KeyPair keyPair() {
+        KeyStoreKeyFactory factory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"), "123456".toCharArray());
+        KeyPair keyPair = factory.getKeyPair("jwt", "123456".toCharArray());
+        return keyPair;
+    }
 
+    @Bean
+    public AuthenticationEntryPoint authenticationEntryPoint() {
+        return (request, response, e) -> {
+            response.setStatus(HttpStatus.HTTP_OK);
+            response.setCharacterEncoding("UTF-8");
+            response.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
+            response.setHeader("Access-Control-Allow-Origin", "*");
+            response.setHeader("Cache-Control", "no-cache");
+            Result result = Result.failed(ResultCode.CLIENT_AUTHENTICATION_FAILED);
+            response.getWriter().print(JSONUtil.toJsonStr(result));
+            response.getWriter().flush();
+        };
+    }
 }
