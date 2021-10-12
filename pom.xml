@@ -50,7 +50,7 @@
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <hutool.version>5.7.13</hutool.version>
         <lombok.version>1.18.12</lombok.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.13.1</junit.version>
         <devtools.version>2.2.5.RELEASE</devtools.version>
         <module.version>1.0-SNAPSHOT</module.version>
         <swagger.version>3.0.0</swagger.version>
