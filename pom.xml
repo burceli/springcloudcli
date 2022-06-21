@@ -45,7 +45,7 @@
         <mariadb.version>2.5.4</mariadb.version>
         <mybatis.version>1.2.0</mybatis.version>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
-        <mysql.version>6.0.6</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <redission.version>3.12.5</redission.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
         <hutool.version>5.7.13</hutool.version>
